@@ -36,16 +36,18 @@ export default function App() {
       <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
       <GoalInput 
       visible={isAddMode} 
-      addGoalHandler={addGoalHandler} 
+      onAddGoal={addGoalHandler} 
       onCancel={cancelGoalAdditionHandler} 
       />
       <FlatList 
       keyExtractor={(item, index) => item.id}
       data={courseGoals} 
-      renderItem={itemData => <GoalItem 
+      renderItem={itemData => (
+      <GoalItem 
       id={itemData.item.id} 
       onDelete={removeGoalHandler} 
-      title={itemData.item.val} />} 
+      title={itemData.item.val} />
+      )} 
       />
     </View>
   );
